@@ -1,6 +1,6 @@
 CREATE TABLE book
 (
-    id    SERIAL           NOT NULL PRIMARY KEY,
-    name  VARCHAR(255)     NOT NULL,
+    id    SERIAL           PRIMARY KEY,
+    name  VARCHAR(255)     NOT NULL  UNIQUE,
     price DOUBLE PRECISION NOT NULL
 );
