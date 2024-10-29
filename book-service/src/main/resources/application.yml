@@ -1,3 +1,22 @@
 spring:
   application:
     name: "@project.name@"
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/book_database
+    username: root
+    password: secret
+
+  flyway:
+    url: jdbc:postgresql://localhost:5432/book_database
+    schemas: book_database
+    user: root
+    password: secret
+    locations: classpath:/db/migration
