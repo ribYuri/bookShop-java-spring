@@ -1,26 +1,19 @@
 package org.example.bookservice.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "book")
 public class BookEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
+    private Integer id;
     @Column(name = "name", unique = true)
     private String name;
-
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private Double price;
+    @Column(name = "amount_sold")
+    private Integer amountSold = 0;
 }

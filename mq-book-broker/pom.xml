@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.example</groupId>
-    <artifactId>book-service</artifactId>
+    <artifactId>mq-book-broker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>book-service</name>
-    <description>book-service</description>
+    <name>mq-book-broker</name>
+    <description>mq-book-broker</description>
     <url/>
     <licenses>
         <license/>
@@ -32,11 +32,11 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-validation</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -10,4 +10,5 @@ public class BookDto {
     private String name;
     @NotNull
     private Double price;
+    private Integer quantity;
 }

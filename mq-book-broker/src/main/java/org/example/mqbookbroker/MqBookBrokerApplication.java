@@ -1,4 +1,4 @@
-package org.example.bookservice;
+package org.example.mqbookbroker;
 
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableRabbit
 @SpringBootApplication
-public class BookServiceApplication {
+public class MqBookBrokerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BookServiceApplication.class, args);
+        SpringApplication.run(MqBookBrokerApplication.class, args);
     }
 
 }
