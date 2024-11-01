@@ -1,0 +1,34 @@
+version: '3.4' 
+
+services:
+  book-service-db:
+    image: postgres:latest
+    container_name: book-service-db
+    volumes:
+      - ./create-mq-book-database.sql:/docker-entrypoint-initdb.d/create-mq-book-database.sql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: book_database
+    ports:
+      - 5432:5432
+    networks:
+      - book-service-network
+
+  rabbitmq:
+    image: "rabbitmq:3.8.6-management"
+    hostname: my-rabbit
+    container_name: book-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: "root"
+      RABBITMQ_DEFAULT_PASS: "secret"
+    ports:
+      - 5672:5672
+      - 15672:15672
+    networks:
+      - book-service-network
+
+
+networks:
+  book-service-network:
+    driver: bridge  

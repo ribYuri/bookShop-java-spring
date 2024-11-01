@@ -8,11 +8,24 @@ Faz uso da arquitetura de microsserviços, docker, banco de dados relacional e f
 
 O serviço [book-service](https://github.com/ribYuri/bookShop-java-spring/tree/main/book-service) fica responsável por todo o CRUD de livros, calcular os valores de uma ordem de compra e enviar a compra para processamento via fila de mensagens.
 
-O serviço [mq-order-broker](https://github.com/ribYuri/bookShop-java-spring/tree/main/mq-book-broker) fica responsável por receber a ordem de compra, processar o pagamento (cliente de pagamento mockado), salvar o pedido no banco de dados e, caso o pedido seja aprovado, enviar de volta uma mensagem para que o serviço **book-service** possa realizar o update de quantidades vendidas de cada livro no pedido.
+O serviço [mq-book-broker](https://github.com/ribYuri/bookShop-java-spring/tree/main/mq-book-broker) fica responsável por receber a ordem de compra, processar o pagamento (cliente de pagamento mockado), salvar o pedido no banco de dados e, caso o pedido seja aprovado, enviar de volta uma mensagem para que o serviço **book-service** possa realizar o update de quantidades vendidas de cada livro no pedido.
 
 ## Executando o projeto
-### Docker
-Para executar o projeto será necessário ter o docker instalado. Serão criados dois containers sendo o banco de dados PostgreSql e o RabbitMq para fila de mensagens.
+Para executar o projeto será necessário ter o docker instalado. Para Windows o [Docker Desktop](https://www.docker.com/products/docker-desktop/) deve estar em execução. 
+Serão criados dois containers sendo o banco de dados PostgreSql e o RabbitMq para fila de mensagens. 
+
+### Docker Compose
+* A única configuração necessária será a da [fila de mensagens](#configurando-a-fila-de-mensagens).
+
+Na pasta do projeto existe um arquivo docker compose que irá subir e criar as intâncias necessárias de banco de dados e fila de mensagens. 
+
+Para iniciar, basta abrir o terminal dentro da pasta desse projeto (pasta que contém o arquivo "*docker-compose.yml*") e executar o comando:
+```
+docker compose up
+```
+
+### Docker manualmente
+* Será necessário executar as duas configurações descritas [mais abaixo](#configurando-banco-de-dados).
 
 Para criar e executar o banco PostregreSql basta executar o comando abaixo:
 ```
@@ -42,4 +55,4 @@ Seguindo a ideia do [vídeo tutorial](https://www.youtube.com/watch?v=weAruTI623
 ### Testando
 Aqui no projeto se encontra uma collection que pode ser utilizada para testar a execução.
 
-Basicamente será necessário cadastrar alguns livros, realizar o "cálculo" da orderm de compra de alguns livros selecionados, e então enviar a ordem de compra para "processamento".
+Então, basta rodar os dois projetos disponíveis ([book-service](https://github.com/ribYuri/bookShop-java-spring/tree/main/book-service) e [mq-book-broker](https://github.com/ribYuri/bookShop-java-spring/tree/main/mq-book-broker)) e utilizar a collection disponível para os testes.
