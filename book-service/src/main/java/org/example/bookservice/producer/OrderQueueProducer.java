@@ -17,6 +17,6 @@ public class OrderQueueProducer {
     }
 
     public void sendToQueue(BookOrder bookOrder) throws JsonProcessingException {
-        amqpTemplate.convertAndSend("order-request-exchange", "order-request-rout-key", objectMapper.writeValueAsString(bookOrder));
+        amqpTemplate.convertAndSend("order-request-exchange", "", objectMapper.writeValueAsString(bookOrder));
     }
 }

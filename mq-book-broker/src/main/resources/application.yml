@@ -23,7 +23,7 @@ spring:
     locations: classpath:/db/migration
 
   rabbitmq:
-    username: user
+    username: root
     password: secret
 
 server:

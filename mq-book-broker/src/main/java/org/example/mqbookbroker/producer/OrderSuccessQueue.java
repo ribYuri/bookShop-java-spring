@@ -12,6 +12,6 @@ public class OrderSuccessQueue {
     }
 
     public void sendToQueue(String books) {
-        amqpTemplate.convertAndSend("order-response-success-exchange", "order-response-success-rout-key", books);
+        amqpTemplate.convertAndSend("order-response-success-exchange", "", books);
     }
 }

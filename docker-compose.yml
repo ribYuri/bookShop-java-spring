@@ -20,8 +20,8 @@ services:
     hostname: my-rabbit
     container_name: book-rabbitmq
     environment:
-      RABBITMQ_DEFAULT_USER: "root"
-      RABBITMQ_DEFAULT_PASS: "secret"
+      RABBITMQ_DEFAULT_USER: root
+      RABBITMQ_DEFAULT_PASS: secret
     ports:
       - 5672:5672
       - 15672:15672
